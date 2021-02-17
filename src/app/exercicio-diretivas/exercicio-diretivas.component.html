@@ -34,3 +34,20 @@
       {{ primeiro }} - {{ i + 1 }} - Car: {{ car.car }}, Model: {{ car.model }}, Color: {{ car.color }} - {{ ultimo }}
      </li>
 </ul>
+
+<hr>
+<h2> Solution of exercise </h2>
+
+<ul>
+    <li *ngFor="let memesGroup of MEMES_AGRUPADOS_POR_CATEGORIA">
+        {{ memesGroup.categoria }}
+        <div *ngFor="let meme of memesGroup.memes; let par = even">
+            <img [src]="PREFIX_IMAGE_URL+ meme.imageURL" *ngIf="par; else parBlock">
+            <ng-template #parBlock>
+                <h2> PAR </h2>
+            </ng-template>            
+        </div>
+    </li>
+</ul>
+
+<br><br><br>
