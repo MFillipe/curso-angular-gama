@@ -1,0 +1,15 @@
+<p>exercicio-ngclass works!</p>
+
+<p [ngClass]="mustBeGreen ? 'green' : 'red'"> Test </p>
+<p [ngClass]="{
+    'green': mustBeGreen,
+    'red': !mustBeGreen
+}"> Test 2 </p>
+<br>
+<button (click)="turnGreen()"> Turn green </button>
+
+
+<p [class]="mustBeGreen ? 'green' : 'red'"> Testing PropertyBinding Class </p>
+<br>
+
+<p [class.green]="mustBeGreen"> Testing PropertyBinding Class </p>
