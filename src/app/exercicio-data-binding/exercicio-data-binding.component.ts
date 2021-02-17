@@ -18,7 +18,9 @@ export class ExercicioDataBindingComponent implements OnInit {
 
   accessibilityText: string = 'Texto acessível';
 
-  valorDoInput: any;
+  valorDoInput: string = '';
+
+  valorContador: number = 10;
   
   constructor() { 
     setTimeout(() => {
@@ -53,8 +55,9 @@ export class ExercicioDataBindingComponent implements OnInit {
     this.clicado.emit(true);
   }
 
-  onValorAtualizadoContador(novoValor) {
-    console.log('onValorAtualizadoContador: ', novoValor);
-  }
+  // onValorAtualizadoContador(novoValor) {
+  //   this.valorContador = novoValor;
+  //   console.log('onValorAtualizadoContador: ', novoValor);
+  // }
 
 }

@@ -21,7 +21,4 @@ export class AppComponent {
     console.log('AppComponent: EVENTO RECEBIDO!', $event);
   }
 
-  onValorAtualizadoContador(novoValor) {
-    console.log('onValorAtualizadoContador: ', novoValor);
-  }
 }
