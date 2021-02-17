@@ -7,7 +7,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
+  title: string = 'Welcome';
+
+  pudim: string = 'Ferrari';
+
   constructor() {
-    console.log("To aqui");
+    setTimeout(() => {
+      return this.title = 'Welcome guys!! =)';
+    }, 5000);
+  }
+
+  eventoRecebido($event) {
+    console.log('AppComponent: EVENTO RECEBIDO!', $event);
+  }
+
+  onValorAtualizadoContador(novoValor) {
+    console.log('onValorAtualizadoContador: ', novoValor);
   }
 }

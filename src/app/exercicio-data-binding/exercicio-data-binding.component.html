@@ -1,0 +1,48 @@
+<!-- Exercicio Contador -->
+<app-exercicio-contador
+[valor]="10"
+(valorMudou)="onValorAtualizadoContador($event)">
+</app-exercicio-contador>
+
+<!-- Exemplos de Event Binding -->
+
+<br><br>
+<button (click)="onClickBotaoEmissor($event)">
+    Emitir informação de clique.
+</button><br><br>
+
+<!--
+<button 
+(click)="onClick($event)"
+(mouseenter)="passouMouse()">
+Clique em mim!
+</button>
+
+
+<input type="text"
+[value]="valorDoInput"
+(keyup)="digitouAlgo($event)"><br>
+
+Valor do Input: {{ valorDoInput }}
+-->
+
+
+<!-- Exemplos de Property Binding -->
+
+
+<h2>Word: {{ palavra }}</h2>
+
+<input type="text" [value]="initialValue">
+
+<br><br>
+
+<button [disabled]="isDisabled">Clique</button>
+
+<br>
+
+<p [attr.aria-label]="isDisabled ? 'Botão Desabilitado' : accessibilityText">Lorem...</p>
+
+<br>
+
+<img [src]="imageURL">
+
