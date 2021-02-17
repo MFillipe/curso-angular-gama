@@ -1,0 +1,36 @@
+<p>Value in isTrue: {{ isTrue }}</p>
+
+
+<div *ngIf="isTrue; else elseBlock"> Condidação ngIf </div>
+<br>
+
+<!-- <ng-template #elseBlock>
+    It shows when condition is false
+</ng-template> -->
+
+<button (click)="changeValue()"> Test ngIf </button>
+<br>
+<div *ngIf="sum(5, 7) > 10"> Condition ngIf </div>
+
+<ng-template [ngIf]="isTrue">
+    <div> Content to render when condition is true </div>
+</ng-template>
+
+
+<div *ngIf="isTrue; then thenBlock else elseBlock"> Condidação ngIf </div>
+<ng-template #thenBlock> ng-template: true </ng-template>
+<ng-template #elseBlock> ng-template: false </ng-template>
+
+<hr>
+
+<ul>
+    <li *ngFor="let fruit of fruitList"> {{ fruit }} </li>
+</ul>
+
+<br><br><br>
+
+<ul>
+    <li *ngFor="let car of carList; let i = index; first as primeiro; last as ultimo"> 
+      {{ primeiro }} - {{ i + 1 }} - Car: {{ car.car }}, Model: {{ car.model }}, Color: {{ car.color }} - {{ ultimo }}
+     </li>
+</ul>
