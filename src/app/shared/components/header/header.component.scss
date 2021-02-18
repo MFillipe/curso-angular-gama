@@ -1,11 +1,61 @@
 .header {
     text-align: center;
     padding: 0.8rem;
-    background-color: blue;
+    background-color: #FBFBFB;
 
     &__title {
-        color: white;
+        color: black;
         margin: 0;
         font-size: 2rem;
     }
+
+    .nav-bar-list {
+        background-color: #FBFBFB;
+    
+        li {
+            display: inline;
+    
+            a {
+                display: inline-block;
+                color: black;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            .ativado {
+                color: purple;
+            }
+        }
+    }
 }
+
+.body {
+    background-color: purple;
+}
+
+.div {
+    
+  }
+  
+  img {
+    // width: 100px;
+    // height: 100px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100px;
+    padding: 10px;
+  }
+
+  .routes {
+    box-sizing: border-box;
+    margin: 0px;
+    -webkit-font-smoothing: antialiased;
+    appearance: none;
+    text-size-adjust: 100%;
+    border: 0px;
+    font-weight: inherit;
+    outline: 0px;
+    padding: 0px;
+    text-rendering: optimizelegibility; 
+  }
