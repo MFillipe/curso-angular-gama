@@ -1,0 +1,20 @@
+
+<p>Movie: {{ movie.title | uppercase }}</p>
+<p>Score: {{ movie.score  | number: '1.1-1' }}</p>
+<p>PriceRent: {{ movie.priceRent | currency: 'BRL' }}</p>
+<p>DataPreview: {{ movie.dataPreview | date: 'medium'}}</p>
+
+<hr>
+
+<ul>
+    <li *ngFor="let buy of buying">
+        <p>Product: <b>{{ buy.product | uppercase }}</b></p>
+        <p>Value: {{ buy.value | currency: 'BRL'}}</p>
+        <p>Amount: {{ buy.amount }}</p>
+        <!-- <p>Weight: {{ buy.weight | number: '1.1-2'}} KG </p> -->
+        <!-- <p>Weight: {{ buy.weight > 0 ? (buy.weight | number: '1.1-2') + ' Kg': 'no weight'}}</p> -->
+        <p>Weight: {{ getWeightFormat(buy.weight) }}</p>
+        <p>Date: {{ buy.date | date: 'EEEE, dd \'de\' MMMM \'de\' yyyy, \' às\' HH:mm' }} </p>
+        <!-- <p>Date: {{ buy.date | date: 'fullDate' }}, às {{ buy.date | date: 'HH:mm' }}</p> -->
+    </li>
+</ul>
