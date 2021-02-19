@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-import { Transaction } from './extrato.interface';
+import { Transaction } from './extrato.interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class ExtratoService {
   API_URL = environment.API_URL;
 
   getTransactions() {
+    //return throwError(new Error('OPA'));
     return this.http.get<Transaction[]>(`${this.API_URL}/transacoes`);
-    //console.log(this.API_URL);
   }
 }
