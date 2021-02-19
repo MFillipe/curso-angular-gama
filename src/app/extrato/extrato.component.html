@@ -1,1 +1,25 @@
 <h2 class="white"> Extrato </h2>
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="color"> ID </th>
+                <th class="color"> Data </th>
+                <th class="color"> Description </th>
+                <th class="color"> Value </th>
+                <th class="color"> Category </th>
+            </tr>
+        </thead>
+    <tbody>
+        <tr *ngFor="let transaction of transactions">
+            <td class="color-second"> {{ transaction.id }} </td>
+            <td class="color-second"> {{ transaction.data | date }} </td>
+            <td class="color-second"> {{ transaction.descricao }} </td>
+            <td class="color-second"> {{ transaction.valor | currency: 'BRL'}} </td>
+            <td class="color-second"> {{ transaction.categoria }} </td>
+        </tr>
+    </tbody>
+    
+    </table>
+</div>
