@@ -1,5 +1,4 @@
 <div class="modal-content ">
-    <div class="white">
         <form  #form="ngForm" (ngSubmit)="onSubimit(form)"  class="form-signin pt-5">
     
             <div class="p-2">
@@ -8,7 +7,10 @@
                     class="form-control"
                     placeholder="Email"
                     name="email" 
-                    [(ngModel)]="email" required email>  
+                    [(ngModel)]="email" required email>
+                    <p *ngIf="showError('email', form)">
+                         Invalid Email. 
+                    </p>  
             </div>
     
             <div class="p-2">
@@ -17,14 +19,14 @@
                     class="form-control" 
                     placeholder="Password" 
                     name="password" 
-                    [(ngModel)]="password" required> 
+                    [(ngModel)]="password" required>
+                    <p *ngIf="showError('password', form)">
+                        Invalid Password. 
+                    </p>  
             </div>
     
-            <div class="login-form">
-               <button class="login-form" type="submit"> Login </button>
-              
-            </div>
-    
+          <div class="login-form">
+            <button class="login-form" type="submit"> Login </button>
+          </div>
         </form>
-    </div>
 </div>
