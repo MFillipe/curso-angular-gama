@@ -16,8 +16,12 @@ export class ExtratoService {
 
   API_URL = environment.API_URL;
 
-  getTransactions() {
+  getTransactions(page: number) {
     //return throwError(new Error('OPA'));
-    return this.http.get<Transaction[]>(`${this.API_URL}/transacoes`);
+    return this.http.get<Transaction[]>(`${this.API_URL}/transacoes`, {
+      params: {
+        _page: String(page)
+      }
+    });
   }
 }

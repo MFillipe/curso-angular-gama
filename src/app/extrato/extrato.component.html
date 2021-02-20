@@ -1,5 +1,6 @@
-<h2 class="white"> Extrato </h2>
+<!-- <h2 class="white"> Extrato </h2> -->
 
+<br>
 <div class="text-center" *ngIf="isLoading">
     <div class="spinner-border text-white" role="status">
       <span class="sr-only">Loading...</span>
@@ -33,4 +34,17 @@
     </tbody>
     
     </table>
+
+    <br><br><br>
+
+    <div class="text-center">
+
+        <button  type="button" class="btn btn-secondary mr-5" (click)="backPage()" [disabled]="page === 1"> Back </button> 
+        <button  type="button" class="btn btn-secondary mrl-5" (click)="nextPage()" [disabled]="page === 3"> Next </button>
+
+        <br><br><br>
+
+        <p class="white">   Page: {{ page }}  </p>
+
+    </div>
 </div>
