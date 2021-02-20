@@ -11,8 +11,7 @@ export class ExtratoService {
 
   constructor(
     private http: HttpClient,
-  ) { 
-  }
+  ) { }
 
   API_URL = environment.API_URL;
 
