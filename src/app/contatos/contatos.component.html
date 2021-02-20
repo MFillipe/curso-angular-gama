@@ -15,11 +15,15 @@
         <thead>
             <tr>
                 <th class="color-main"> Name </th>
+                <th class="color-main"> Actions </th>
             </tr>
         </thead>
     <tbody>
         <tr *ngFor="let contact of contacts ">
             <td class="color-secondary"> {{ contact.nome }} </td>
+            <td>
+                <button ype="button" class="btn btn-secondary" (click)="goToDetails(contact.id)"> Details </button>
+            </td>
         </tr>
     </tbody>
     

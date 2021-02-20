@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { finalize, take } from 'rxjs/operators';
 
 import { Contacts } from './contatos.interface';
@@ -18,7 +19,8 @@ export class ContatosComponent implements OnInit {
   errorLoading: boolean;
 
   constructor(
-    private contatosService: ContatosService
+    private contatosService: ContatosService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +30,7 @@ export class ContatosComponent implements OnInit {
   loadContacts() {
     this.isLoading = true;
     this.errorLoading = false;
-    this.contatosService.getTransactions()
+    this.contatosService.getContacts()
     .pipe(
       take(1),
       finalize(() => this.isLoading = false)
@@ -46,6 +48,10 @@ export class ContatosComponent implements OnInit {
   onError(error: any) {
     this.isLoading = false;
     console.log(error);
+  }
+
+  goToDetails(idContact: string) {
+    this.router.navigate([`contatos/${idContact}`]);
   }
 
 }

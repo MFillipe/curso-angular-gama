@@ -16,7 +16,11 @@ export class ContatosService {
   ) { 
   }
 
-  getTransactions() {
-    return this.http.get<Contacts[]>(`${this.API_URL}/contatos`) 
+  getContacts() {
+    return this.http.get<Contacts[]>(`${this.API_URL}/contatos`);
+  }
+
+  getContact(id: string) {
+    return this.http.get<Contacts>(`${this.API_URL}/contatos/${id}`); 
   }
 }
