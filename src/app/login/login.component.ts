@@ -1,5 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
 
 import { LoginService } from './login.service';
 
@@ -16,16 +18,21 @@ export class LoginComponent implements OnInit {
   email: string;
 
   password: string;
+
+  isLoading: boolean;
+
+  errorLogin: boolean;
   
   constructor(
     private loginService: LoginService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
   }
 
   onSubimit(form) {
-    console.log(this.emailInput);
+    this.errorLogin = false;
     
     if (!form.valid) {
       
@@ -49,15 +56,23 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.isLoading = true;
     this.loginService.logar(this.email, this.password)
-    .subscribe(
-      response => {
-        console.log('Sucess!');
-      },
-      error => {
-        console.log('Invalid Access');
-      }
+    .pipe(
+      finalize(() => this.isLoading = false)
     )
+    .subscribe(
+      response => this.onSuccessLogin(),
+      error => this.onErrorLogin(),
+    )
+  }
+
+  onSuccessLogin() {
+    this.router.navigate(['home']);
+  }
+
+  onErrorLogin() {
+    this.errorLogin = true;
   }
 
   showError(nameControl: string, form: NgForm) {

@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { of, throwError, timer } from 'rxjs';
-import { delay, mergeMap } from 'rxjs/operators';
+import { delay, mergeMap, tap } from 'rxjs/operators';
+
+import { AuthService } from '../shared/services/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+  ) { }
 
   logar(email: string, password: string) {
   
@@ -20,7 +24,11 @@ export class LoginService {
         },
         token: 'SJ123324234IUNKF0F2123IONFIERNI'
       }).pipe(
-        delay(2000)
+        delay(2000),
+        tap(response => {
+          this.authService.setUser(response.user);
+          console.log(response);
+        })
       );
     }
 
