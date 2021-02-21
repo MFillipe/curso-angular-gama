@@ -7,10 +7,13 @@
                     class="form-control"
                     placeholder="Email"
                     name="email" 
-                    [(ngModel)]="email" required email>
-                    <p *ngIf="showError('email', form)">
-                         Invalid Email. 
-                    </p>  
+                    [(ngModel)]="email" required email
+                    [ngClass]="showError('email', form) ? 'is-invalid' : '' "  #emailInput>
+
+                    <div *ngIf="showError('email', form)" 
+                        class="invalid-feedback">
+                            Invalid Email  
+                    </div> 
             </div>
     
             <div class="p-2">
@@ -19,10 +22,13 @@
                     class="form-control" 
                     placeholder="Password" 
                     name="password" 
-                    [(ngModel)]="password" required>
-                    <p *ngIf="showError('password', form)">
-                        Invalid Password. 
-                    </p>  
+                    [(ngModel)]="password" required
+                    [ngClass]="showError('password', form) ? 'is-invalid' : '' "  #passwordInput>
+                    
+                    <div *ngIf="showError('password', form)" 
+                        class="invalid-feedback">
+                            Invalid Password  
+                    </div> 
             </div>
     
           <div class="login-form">

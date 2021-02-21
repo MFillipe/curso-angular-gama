@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -8,30 +10,57 @@ import { FormGroup } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
+  @ViewChild('emailInput') emailInput: ElementRef;
+  @ViewChild('passwordInput') passwordInput: ElementRef;
+  
   email: string;
 
   password: string;
   
-  constructor() { }
+  constructor(
+    private loginService: LoginService,
+  ) { }
 
   ngOnInit(): void {
   }
 
   onSubimit(form) {
-
+    console.log(this.emailInput);
+    
     if (!form.valid) {
+      
       form.controls.email.markAsTouched();
       form.controls.password.markAsTouched();
-      console.log(form);
-      console.log('Invalid Form!!');
+
+      if(form.controls.email.invalid){
+        this.emailInput.nativeElement.focus();
+        return;
+      }
+
+      if(form.controls.password.invalid){
+        this.passwordInput.nativeElement.focus();
+        return;
+      }
+
       return;
     }
 
-    console.log('email: ', this.email);
-    console.log('password: ', this.password);
+   this.login();
   }
 
-  showError(nameControl: string, form: FormGroup) {
+  login() {
+    this.loginService.logar(this.email, this.password)
+    .subscribe(
+      response => {
+        console.log('Sucess!');
+      },
+      error => {
+        console.log('Invalid Access');
+      }
+    )
+  }
+
+  showError(nameControl: string, form: NgForm) {
 
     if(!form.controls[nameControl]) {
       return false;
