@@ -7,8 +7,8 @@ import { ContatosService } from '../contatos.service';
 
 @Component({
   selector: 'app-detalhe-contato',
-  templateUrl: './detalhe-contato.component.html',
-  styleUrls: ['./detalhe-contato.component.scss']
+  templateUrl: './detalhar-contato.component.html',
+  styleUrls: ['./detalhar-contato.component.scss']
 })
 export class DetalheContatoComponent implements OnInit {
 
